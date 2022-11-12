@@ -24,7 +24,7 @@ class Conference(models.Model):
     event_date = models.DateField(verbose_name='تاریخ برگزاری')
     event_place = models.CharField(max_length=500, verbose_name='محل برگزاری')
 
-    def __str__(self):
+    def str(self):
         return self.title
 
 
@@ -43,7 +43,7 @@ class Journal(models.Model):
     publisher = models.DateField(verbose_name='ناشر')
     rank = models.CharField(max_length=500, verbose_name='رتبه ژورنال')
 
-    def __str__(self):
+    def str(self):
         return self.title
 
 
@@ -71,7 +71,7 @@ class Paper(models.Model):
     publication_date = models.DateField(verbose_name='تاریخ انتشار')
     conference = models.ForeignKey(Conference, on_delete=models.PROTECT, null=True, verbose_name='کنفرانس', blank=True)
     journal = models.ForeignKey(Journal, on_delete=models.PROTECT, null=True, verbose_name='ژورنال', blank=True)
+    rank = models.CharField(max_length=500, verbose_name='رتبه ژورنال')
 
-
-    def __str__(self):
+    def str(self):
         return self.title
