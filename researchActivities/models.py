@@ -71,7 +71,7 @@ class Paper(models.Model):
     publication_date = models.DateField(verbose_name='تاریخ انتشار')
     conference = models.ForeignKey(Conference, on_delete=models.PROTECT, null=True, verbose_name='کنفرانس', blank=True)
     journal = models.ForeignKey(Journal, on_delete=models.PROTECT, null=True, verbose_name='ژورنال', blank=True)
-    rank = models.CharField(max_length=500, verbose_name='رتبه ژورنال')
+
 
     def __str__(self):
         return self.title
