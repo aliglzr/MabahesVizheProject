@@ -6,7 +6,7 @@ from researchActivities.models import Conference
 
 class PaperAdmin(admin.ModelAdmin):
     list_display = (
-    "title", "doi", "author1", "author2", "author3", "author4", "publication_date", "conference", "journal")
+    "title", "doi", "author1", "author2", "author3", "author4", "publication_date", "conference", "journal", "paper_image")
 
 
 class ConferenceAdmin(admin.ModelAdmin):
