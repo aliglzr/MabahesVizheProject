@@ -12,6 +12,8 @@ researchActivities/__pycache__/
 resumeProject/__pycache__/
 researchActivities/__pycache__/*
 resumeProject/__pycache__/*
+researchActivities/migrations/
+researchActivities/migrations/*
 
 # If you are using PyCharm # 
 # User-specific stuff
