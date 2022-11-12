@@ -1,10 +1,11 @@
 from django.db import models
 
+
 # Create your models here.
 class Conference(models.Model):
     class Meta:
-        verbose_name ='کنفرانس'
-        verbose_name_plural ='کنفرانس ها'
+        verbose_name = 'کنفرانس'
+        verbose_name_plural = 'کنفرانس ها'
 
     TOPIC_CHOICES = [
         ('0', 'مهندسی و علوم فیزیکی'),
@@ -30,12 +31,13 @@ class Conference(models.Model):
 
 class Journal(models.Model):
     class Meta:
-        verbose_name ='ژورنال'
-        verbose_name_plural ='ژورنال ها'
+        verbose_name = 'ژورنال'
+        verbose_name_plural = 'ژورنال ها'
+
     CHOICES = [
         ('0', 'داخلی'),
         ('1', 'خارجی'),
-               ]
+    ]
     journalType = models.CharField(max_length=1, choices=CHOICES, verbose_name='نوع ژورنال')
     title = models.CharField(max_length=500, verbose_name='عنوان ژورنال')
     issn = models.CharField(max_length=500, verbose_name='شابک')
@@ -49,14 +51,15 @@ class Journal(models.Model):
 
 class Paper(models.Model):
     class Meta:
-        verbose_name ='مقاله'
-        verbose_name_plural ='مقاله ها'
+        verbose_name = 'مقاله'
+        verbose_name_plural = 'مقاله ها'
+
     CHOICES = [
         ('0', 'ژورنال داخلی'),
         ('1', 'ژورنال خارجی'),
         ('2', 'کنفرانس داخلی'),
         ('3', 'کنفرانس خارجی'),
-               ]
+    ]
     paperType = models.CharField(max_length=1, choices=CHOICES, verbose_name='نوع مقاله')
     title = models.CharField(max_length=500, verbose_name='عنوان مقاله')
     doi = models.CharField(max_length=1000)
@@ -69,10 +72,9 @@ class Paper(models.Model):
     issn = models.CharField(max_length=500, verbose_name='شابک')
     volume = models.CharField(max_length=500, verbose_name='شمارگان ژورنال')
     publication_date = models.DateField(verbose_name='تاریخ انتشار')
-    paper_image = models.ImageField(upload_to="paperImages/" , null=True , blank=True , verbose_name=  'تصویر مقاله')
+    paper_image = models.ImageField(upload_to="paperImages/", null=True, blank=True, verbose_name='تصویر مقاله')
     conference = models.ForeignKey(Conference, on_delete=models.PROTECT, null=True, verbose_name='کنفرانس', blank=True)
     journal = models.ForeignKey(Journal, on_delete=models.PROTECT, null=True, verbose_name='ژورنال', blank=True)
-
 
     def __str__(self):
         return self.title
